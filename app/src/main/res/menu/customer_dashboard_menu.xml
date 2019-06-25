@@ -1,0 +1,18 @@
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android" >
+    <item
+        android:id="@+id/customer_logout"
+        android:icon="@drawable/ic_logout"
+        android:title="Logout"
+        app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/customer_settings"
+        android:icon="@drawable/ic_assignment_ind_black_24dp"
+        android:title="@string/action_settings"
+        app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/customer_QR"
+        android:icon="@drawable/ic_qr"
+        android:title="Inventory"
+        app:showAsAction="ifRoom|withText" />
+</menu>

@@ -1,0 +1,23 @@
+<resources>
+
+    <string name="title_activity_customer_login">CustomerLogin</string>
+    <string name="title_activity_customer_dashboard">CustomerDashboard</string>
+    <string name="title_activity_buisness_dashboard">buisnessDashboard</string>
+    <string name="app_name">Grocerz</string>
+    <string name="action_settings">Settings</string>
+    <string name="action_search">Search</string>
+    <string name="action_record">Record Video</string>
+    <string name="action_save">Save</string>
+    <string name="action_label">Add Label</string>
+    <string name="action_play">Play Video</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="title_activity_buisness_profile">BuisnessProfile</string>
+    <string name="title_activity_customer_profile">CustomerProfile</string>
+    <string name="title_activity_buisness_add_amount">BuisnessAddAmount</string>
+    <string name="title_activity_customer_qr">CustomerQR</string>
+    <string name="title_activity_buisness_generate_new_product">BuisnessGenerateNewProduct</string>
+    <string name="title_activity_generate_product_qr">GenerateProductQR</string>
+    <string name="title_activity_edit_product_details">EditProductDetails</string>
+    <string name="title_activity_edit_product">EditProduct</string>
+    <string name="title_activity_inventory">Inventory</string>
+</resources>

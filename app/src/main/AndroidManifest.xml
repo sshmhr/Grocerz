@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.hp.grocerz">
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity
+            android:name=".Inventory"
+            android:label="@string/title_activity_inventory"
+            android:parentActivityName=".buisnessDashboard"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.hp.grocerz.buisnessDashboard" />
+        </activity>
+        <activity
+            android:name=".EditProduct"
+            android:label="@string/title_activity_edit_product"
+            android:parentActivityName=".buisnessDashboard"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.hp.grocerz.buisnessDashboard" />
+        </activity>
+        <activity
+            android:name=".EditProductDetails"
+            android:label="@string/title_activity_edit_product_details"
+            android:parentActivityName=".buisnessDashboard"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.hp.grocerz.buisnessDashboard" />
+        </activity>
+        <activity
+            android:name=".GenerateProductQR"
+            android:label="@string/title_activity_generate_product_qr"
+            android:parentActivityName=".buisnessDashboard"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.hp.grocerz.buisnessDashboard" />
+        </activity>
+        <activity
+            android:name=".BuisnessGenerateNewProduct"
+            android:label="@string/title_activity_buisness_generate_new_product"
+            android:parentActivityName=".buisnessDashboard"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.hp.grocerz.buisnessDashboard" />
+        </activity>
+        <activity
+            android:name=".CustomerQR"
+            android:label="@string/title_activity_customer_qr"
+            android:parentActivityName=".CustomerDashboard"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.hp.grocerz.CustomerDashboard" />
+        </activity>
+        <activity
+            android:name=".BuisnessAddAmount"
+            android:label="@string/title_activity_buisness_add_amount"
+            android:parentActivityName=".buisnessDashboard"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.hp.grocerz.buisnessDashboard" />
+        </activity>
+        <activity
+            android:name=".CustomerProfile"
+            android:label="@string/title_activity_customer_profile"
+            android:parentActivityName=".CustomerDashboard"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.hp.grocerz.CustomerDashboard" />
+        </activity>
+        <activity
+            android:name=".BuisnessProfile"
+            android:label="@string/title_activity_buisness_profile"
+            android:parentActivityName=".buisnessDashboard"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.hp.grocerz.buisnessDashboard" />
+        </activity>
+        <activity
+            android:name=".buisnessDashboard"
+            android:label="@string/title_activity_buisness_dashboard"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".CustomerDashboard"
+            android:label="@string/title_activity_customer_dashboard"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".BuisnessSignup" />
+        <activity android:name=".CustomerSignup" />
+        <activity android:name=".BuisnessLogin" />
+        <activity
+            android:name=".CustomerLogin"
+            android:label="@string/title_activity_customer_login" />
+        <activity android:name=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>
