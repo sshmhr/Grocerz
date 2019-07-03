@@ -20,4 +20,5 @@
     <string name="title_activity_edit_product_details">EditProductDetails</string>
     <string name="title_activity_edit_product">EditProduct</string>
     <string name="title_activity_inventory">Inventory</string>
+    <string name="title_activity_customer_cart">CustomerCart</string>
 </resources>

@@ -9,10 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import org.w3c.dom.Text;
-
 import java.util.ArrayList;
-import java.util.List;
 
 public  class InventoryAdapter extends RecyclerView.Adapter<InventoryAdapter.ViewHolder> {
 
@@ -58,7 +55,7 @@ public  class InventoryAdapter extends RecyclerView.Adapter<InventoryAdapter.Vie
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            itemName = itemView.findViewById(R.id.inventory_product_name);
+            itemName = itemView.findViewById(R.id.cart_prod_names);
             itemPrice = itemView.findViewById(R.id.inventory_product_price);
             itemId = itemView.findViewById(R.id.inventory_product_id);
             itemQty = itemView.findViewById(R.id.inventory_product_qty);

@@ -137,7 +137,7 @@ public class buisnessDashboard extends AppCompatActivity {
         builder.setMessage("Are You Sure?");
         builder.setPositiveButton("YES", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int id) {
-                buisnessDashboard.this.finish();
+                buisnessDashboard.this.finishAndRemoveTask();
             }
         });
         builder.setNegativeButton("NO",null);

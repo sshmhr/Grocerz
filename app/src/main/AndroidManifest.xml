@@ -10,6 +10,15 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
+            android:name=".CustomerCart"
+            android:label="@string/title_activity_customer_cart"
+            android:parentActivityName=".CustomerDashboard"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.hp.grocerz.CustomerDashboard" />
+        </activity>
+        <activity
             android:name=".Inventory"
             android:label="@string/title_activity_inventory"
             android:parentActivityName=".buisnessDashboard"
