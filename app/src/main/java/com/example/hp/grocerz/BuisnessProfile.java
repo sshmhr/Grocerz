@@ -67,9 +67,9 @@ public class BuisnessProfile extends AppCompatActivity {
     }
 
     private void initElements() {
-        email = findViewById(R.id.prod_edit_store);
+        email = findViewById(R.id.cust_edit_phone);
         password = findViewById(R.id.prod_edit_price);
-        phone = findViewById(R.id.prod_edit_store);
+        phone = findViewById(R.id.cust_edit_phn);
         name = findViewById(R.id.prod_edit_name);
         address = findViewById(R.id.text_buisness_address);
         error = findViewById(R.id.text_buisness_error);

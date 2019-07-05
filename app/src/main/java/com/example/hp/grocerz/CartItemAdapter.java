@@ -3,8 +3,10 @@ package com.example.hp.grocerz;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.support.constraint.ConstraintLayout;
 import android.support.design.widget.FloatingActionButton;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ResourceCursorAdapter;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -34,14 +36,14 @@ class CartItemAdapter  extends ResourceCursorAdapter {
 
         final FirebaseAuth mAuth = FirebaseAuth.getInstance();
         final FirebaseUser mUser = mAuth.getCurrentUser();
-        final SQLiteDatabase db  = a.openOrCreateDatabase("testproducts",Context.MODE_PRIVATE,null);
+        final SQLiteDatabase db  = a.openOrCreateDatabase("testProducts2",Context.MODE_PRIVATE,null);
 
         add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                TextView prod = v.getRootView().findViewById(R.id.hiddentv);
-                TextView prodTotal = v.getRootView().findViewById(R.id.total);
-                TextView prodCount = v.getRootView().findViewById(R.id.cart_prod_qty);
+                TextView prod =  ((ConstraintLayout) v.getParent()).findViewById(R.id.hiddentv);
+                TextView prodTotal =((ConstraintLayout) v.getParent()).findViewById(R.id.total);
+                TextView prodCount = ((ConstraintLayout) v.getParent()).findViewById(R.id.cart_prod_qty);
                 String productId = prod.getText().toString();
                 String total = prodTotal.getText().toString();
                 String count = prodCount.getText().toString();
@@ -59,13 +61,13 @@ class CartItemAdapter  extends ResourceCursorAdapter {
         sub.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                TextView prod = v.getRootView().findViewById(R.id.hiddentv);
-                TextView prodCount = v.getRootView().findViewById(R.id.cart_prod_qty);
+                TextView prod = ((ConstraintLayout) v.getParent()).findViewById(R.id.hiddentv);
+                TextView prodCount = ((ConstraintLayout) v.getParent()).findViewById(R.id.cart_prod_qty);
                 String productId = prod.getText().toString();
                 String count = prodCount.getText().toString();
                 if(Integer.parseInt(count) - 1 <= 0) {
                     db.execSQL("delete from cart" + mUser.getUid() + " where prodId='" + productId + "';");
-                    Toast.makeText(a,((TextView)v.getRootView().findViewById(R.id.cart_prod_names)).getText().toString() +  " is Deleted from the cart", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(a,((TextView)((ConstraintLayout) v.getParent()).findViewById(R.id.cart_prod_names)).getText().toString() +  " is Deleted from the cart", Toast.LENGTH_SHORT).show();
                 }
                 else
                     db.execSQL("update cart" + mUser.getUid() + " set count = count - 1 where prodId='" + productId + "';");
@@ -78,10 +80,10 @@ class CartItemAdapter  extends ResourceCursorAdapter {
         del.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                TextView prod =v.getRootView().findViewById(R.id.hiddentv);
+                TextView prod =((ConstraintLayout) v.getParent()).findViewById(R.id.hiddentv);
                 String productId = prod.getText().toString();
                 db.execSQL("delete from cart"+mUser.getUid()+" where prodId='" + productId + "';");
-                Toast.makeText(a,((TextView)v.getRootView().findViewById(R.id.cart_prod_names)).getText().toString() +  " is Deleted from the cart", Toast.LENGTH_SHORT).show();
+                Toast.makeText(a,((TextView)((ConstraintLayout) v.getParent()).findViewById(R.id.cart_prod_names)).getText().toString() +  " is Deleted from the cart", Toast.LENGTH_SHORT).show();
                 Cursor c = db.rawQuery("Select rowid _id,* from cart"+mUser.getUid()+";",null) ;
                 swapCursor(c);
             }

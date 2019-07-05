@@ -55,27 +55,40 @@ public class BuisnessAddAmount extends AppCompatActivity {
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference myRef = database.getReference("customer");
         child = myRef.child(key);
+        if (child != null) {
+            child.addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(DataSnapshot dataSnapshot) {
+                    x = dataSnapshot.getValue(Customer.class);
+                    if(x!=null){
+                            textCustName.setText(x.name);
+                            textCustAddress.setText(x.address);
+                            textCustBalance.setText("" + x.balance);
+                            textCustContact.setText(x.phone);
+                            loading.setVisibility(View.GONE);
+                            button.setClickable(true);
+                    }else{
+                        Toast.makeText(BuisnessAddAmount.this, "INCORRECT QR", Toast.LENGTH_SHORT).show();
+                        Intent i = new Intent(BuisnessAddAmount.this,buisnessDashboard.class);
+                        startActivity(i);
+                        BuisnessAddAmount.this.finish();
+                    }
+                }
 
-        child.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                x = dataSnapshot.getValue(Customer.class);
-                textCustName.setText(x.name);
-                textCustAddress.setText(x.address);
-                textCustBalance.setText("" + x.balance);
-                textCustContact.setText(x.phone);
-                loading.setVisibility(View.GONE);
-                button.setClickable(true);
-            }
-
-            @Override
-            public void onCancelled(DatabaseError error) {
-                // Failed to read value
-                Log.w("TAG", "Failed to read value.", error.toException());
-                loading.setVisibility(View.GONE);
-                button.setClickable(true);
-            }
-        });
+                @Override
+                public void onCancelled(DatabaseError error) {
+                    // Failed to read value
+                    Log.w("TAG", "Failed to read value.", error.toException());
+                    loading.setVisibility(View.GONE);
+                    button.setClickable(true);
+                }
+            });
+        }else{
+            Toast.makeText(this, "INCORRECT QR", Toast.LENGTH_SHORT).show();
+            Intent i = new Intent(this,buisnessDashboard.class);
+            startActivity(i);
+            this.finish();
+        }
     }
 
     private void initElements() {

@@ -52,7 +52,7 @@
         app:layout_constraintVertical_bias="0.172" />
 
     <EditText
-        android:id="@+id/prod_edit_store"
+        android:id="@+id/cust_edit_phone"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"

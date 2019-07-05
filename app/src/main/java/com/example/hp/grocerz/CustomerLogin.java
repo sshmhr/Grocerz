@@ -80,7 +80,7 @@ public class CustomerLogin extends Activity {
     }
 
     private void initComponents() {
-        email = findViewById(R.id.prod_edit_store);
+        email = findViewById(R.id.cust_edit_phone);
         password = findViewById(R.id.prod_edit_price);
         spinner = findViewById(R.id.progressBar3);
     }

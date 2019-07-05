@@ -10,6 +10,7 @@ import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -52,9 +53,16 @@ public class CustomerDashboard extends AppCompatActivity {
         initDatabase();
     }
 
+    @Override
+    protected void onResume() {
+        initDatabase();
+        super.onResume();
+    }
+
     private void initDatabase() {
-        db = openOrCreateDatabase("testproducts",MODE_PRIVATE,null);
-        db.execSQL("CREATE TABLE IF NOT EXISTS cart"+mUser.getUid()+"(prodId VARCHAR PRIMARY KEY,prodName VARCHAR,count int,availableCount int,price varchar);");
+        db = openOrCreateDatabase("testProducts2",MODE_PRIVATE,null);
+        db.execSQL("CREATE TABLE IF NOT EXISTS cart"+mUser.getUid()+"(prodId VARCHAR PRIMARY KEY,prodName VARCHAR,count int,availableCount int,price varchar,store varchar);");
+        db.execSQL("CREATE TABLE IF NOT EXISTS Transactions"+mUser.getUid()+"(tranId VARCHAR PRIMARY KEY,userId VARCHAR,details varchar,varchar date);");
     }
 
     private void initElements() {
@@ -65,13 +73,14 @@ public class CustomerDashboard extends AppCompatActivity {
 
     public void scanProduct(View view){
         qrScan = new IntentIntegrator(this);
+//        qrScan.setRequestCode(1101);
         qrScan.initiateScan();
     }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         IntentResult result = IntentIntegrator.parseActivityResult(requestCode, resultCode, data);
-        if (result != null) {
+        if (result != null ) {
             if (result.getContents() == null) {
                 Toast.makeText(this, "Product Not Found Contact the Manager", Toast.LENGTH_LONG).show();
             } else {
@@ -98,15 +107,18 @@ public class CustomerDashboard extends AppCompatActivity {
 
     private void addNewProductToDB(final String productId) {
         child = myProdRef.child(productId);
-        child.addValueEventListener(new ValueEventListener() {
+        child.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 Product x = dataSnapshot.getValue(Product.class);
-                String prodName = x.name;
-                double price =  x.price;
-                int quantity =  + x.quantity ;
-                db.execSQL("insert into cart" + mUser.getUid() + " values('" + productId + "','" + prodName + "',1," + quantity + ",'" + price + "');" );
-                Toast.makeText(CustomerDashboard.this, "Added  " + prodName + " to Cart", Toast.LENGTH_SHORT).show();;
+                if(x!=null) {
+                    String prodName = x.name;
+                    double price = x.price;
+                    int quantity = x.quantity;
+
+                    db.execSQL("insert into cart" + mUser.getUid() + " values('" + productId + "','" + prodName + "',1," + quantity + ",'" + price + "','" + x.store + "');");
+                    Toast.makeText(CustomerDashboard.this, "Added  " + prodName + " to Cart", Toast.LENGTH_SHORT).show();
+                }else Toast.makeText(CustomerDashboard.this, "Product cannot be added", Toast.LENGTH_SHORT).show();
             }
 
             @Override
@@ -140,6 +152,11 @@ public class CustomerDashboard extends AppCompatActivity {
                 Toast.makeText(CustomerDashboard.this, "Error " + databaseError.getMessage(),Toast.LENGTH_LONG).show();
             }
         });
+    }
+
+    public void moveToTransactions(View v){
+        Intent i = new Intent(this,TransactionsDisplay.class);
+        startActivity(i);
     }
 
     @Override

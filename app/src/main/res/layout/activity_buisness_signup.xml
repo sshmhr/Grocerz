@@ -50,7 +50,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView5" />
 
     <EditText
-        android:id="@+id/prod_edit_store"
+        android:id="@+id/cust_edit_pno"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -129,7 +129,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView3" />
 
     <EditText
-        android:id="@+id/prod_edit_store"
+        android:id="@+id/cust_edit_phone"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
@@ -153,8 +153,8 @@
         android:textColor="@color/colorPrimaryDark"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="@+id/textView4"
-        app:layout_constraintEnd_toEndOf="@+id/prod_edit_store"
-        app:layout_constraintStart_toStartOf="@+id/prod_edit_store"
+        app:layout_constraintEnd_toEndOf="@+id/cust_edit_phone"
+        app:layout_constraintStart_toStartOf="@+id/cust_edit_phone"
         app:layout_constraintTop_toTopOf="@+id/textView4"
         app:layout_constraintVertical_bias="0.0" />
 
@@ -184,8 +184,8 @@
         android:inputType="textMultiLine"
         android:maxLines="2"
         android:textColor="@color/colorPrimaryDark"
-        app:layout_constraintEnd_toEndOf="@+id/prod_edit_store"
-        app:layout_constraintStart_toStartOf="@+id/prod_edit_store"
+        app:layout_constraintEnd_toEndOf="@+id/cust_edit_phone"
+        app:layout_constraintStart_toStartOf="@+id/cust_edit_phone"
         app:layout_constraintTop_toTopOf="@+id/textView8" />
 
     <ProgressBar

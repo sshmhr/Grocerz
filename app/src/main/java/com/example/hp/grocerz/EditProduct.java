@@ -51,7 +51,7 @@ public class EditProduct extends AppCompatActivity {
         text_name = findViewById(R.id.prod_edit_name);
         text_price = findViewById(R.id.prod_edit_price);
         text_qty = findViewById(R.id.prod_edit_qty);
-        text_store = findViewById(R.id.prod_edit_store);
+        text_store = findViewById(R.id.cust_edit_phone);
         progress = findViewById(R.id.product_edit_progress);
         progress.setVisibility(View.GONE);
         button = findViewById(R.id.editProduct);
@@ -63,27 +63,40 @@ public class EditProduct extends AppCompatActivity {
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference myRef = database.getReference("product");
         child = myRef.child(key);
+        if(child!=null) {
+            child.addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(DataSnapshot dataSnapshot) {
+                    Product x = dataSnapshot.getValue(Product.class);
+                    if(x!=null) {
+                        text_name.setText(x.name);
+                        text_price.setText("" + x.price);
+                        text_store.setText("" + x.store);
+                        text_qty.setText("" + x.quantity);
+                        progress.setVisibility(View.GONE);
+                        button.setClickable(true);
+                    }else{
+                        Toast.makeText(EditProduct.this, "Incorrect QR", Toast.LENGTH_SHORT).show();
+                        Intent i = new Intent(EditProduct.this,EditProductDetails.class);
+                        startActivity(i);
+                        EditProduct.this.finish();
+                    }
+                }
 
-        child.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                Product x = dataSnapshot.getValue(Product.class);
-                text_name.setText(x.name);
-                text_price.setText("" + x.price);
-                text_store.setText("" + x.store);
-                text_qty.setText("" + x.quantity);
-                progress.setVisibility(View.GONE);
-                button.setClickable(true);
-            }
-
-            @Override
-            public void onCancelled(DatabaseError error) {
-                // Failed to read value
-                Log.w("TAG", "Failed to read value.", error.toException());
-                progress.setVisibility(View.GONE);
-                button.setClickable(true);
-            }
-        });
+                @Override
+                public void onCancelled(DatabaseError error) {
+                    // Failed to read value
+                    Log.w("TAG", "Failed to read value.", error.toException());
+                    progress.setVisibility(View.GONE);
+                    button.setClickable(true);
+                }
+            });
+        }else{
+            Toast.makeText(this, "Incorrect QR", Toast.LENGTH_SHORT).show();
+            Intent i = new Intent(this,EditProductDetails.class);
+            startActivity(i);
+            this.finish();
+        }
     }
 
 

@@ -19,7 +19,7 @@
 
         <android.support.constraint.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="match_parent">
 
             <TextView
                 android:id="@+id/cart_prod_names"
@@ -31,7 +31,7 @@
                 android:textAllCaps="true"
                 android:textAppearance="@android:style/TextAppearance.Material.Medium"
                 android:textColor="@android:color/background_light"
-                android:textSize="24sp"
+                android:textSize="18sp"
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -40,40 +40,56 @@
             <View
                 android:id="@+id/view"
                 android:layout_width="match_parent"
-                android:layout_height="2dp"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="16dp"
-                android:layout_marginEnd="8dp"
-                android:layout_marginBottom="16dp"
-                android:background="#14333333"
+                android:layout_height="3dp"
+                android:layout_marginTop="7dp"
+                android:layout_marginBottom="6dp"
+                android:background="#20333333"
                 app:layout_constraintBottom_toTopOf="@+id/invN"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/cart_prod_names" />
+
+            <View
+                android:id="@+id/view2"
+                android:layout_width="match_parent"
+                android:layout_height="3dp"
+                android:layout_marginTop="8dp"
+                android:background="#20333333"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/cart_prod_names" />
+                app:layout_constraintTop_toBottomOf="@+id/inventory_product_id" />
+
+            <View
+                android:id="@+id/view3"
+                android:layout_width="match_parent"
+                android:layout_height="3dp"
+                android:layout_marginBottom="8dp"
+                android:background="#20333333"
+                app:layout_constraintBottom_toTopOf="@+id/inventory_product_price"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent" />
 
             <TextView
                 android:id="@+id/inventory_product_id"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
                 android:layout_marginEnd="8dp"
                 android:fontFamily="sans-serif"
-                android:maxLines="1"
                 android:text="TextView"
                 android:textColor="@android:color/background_light"
                 android:textIsSelectable="true"
-                android:textSize="18sp"
-                app:layout_constraintBottom_toBottomOf="@+id/invN"
+                android:textSize="16sp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/invN"
-                app:layout_constraintTop_toTopOf="@+id/invN" />
+                app:layout_constraintStart_toStartOf="@+id/inventory_product_price"
+                app:layout_constraintTop_toBottomOf="@+id/view" />
 
             <TextView
                 android:id="@+id/invN"
                 android:layout_width="wrap_content"
                 android:layout_height="27dp"
-                android:layout_marginStart="8dp"
                 android:layout_marginTop="16dp"
                 android:fontFamily="sans-serif-black"
                 android:lineSpacingExtra="8sp"
@@ -87,48 +103,46 @@
             <TextView
                 android:id="@+id/inventory_product_qty"
                 android:layout_width="0dp"
-                android:layout_height="25dp"
-                android:layout_marginStart="8dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp"
                 android:fontFamily="sans-serif"
-                android:maxLines="1"
+                android:inputType="textMultiLine"
                 android:text="TextView"
                 android:textColor="@android:color/background_light"
-                android:textSize="18sp"
-                app:layout_constraintBottom_toBottomOf="@+id/invN3"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toTopOf="@+id/view3"
                 app:layout_constraintEnd_toEndOf="@+id/inventory_product_id"
-                app:layout_constraintStart_toEndOf="@+id/invN3"
-                app:layout_constraintTop_toTopOf="@+id/invN3" />
+                app:layout_constraintStart_toStartOf="@+id/inventory_product_price"
+                app:layout_constraintTop_toBottomOf="@+id/view2" />
 
             <TextView
                 android:id="@+id/invN3"
                 android:layout_width="wrap_content"
                 android:layout_height="27dp"
                 android:layout_marginStart="8dp"
-                android:layout_marginTop="16dp"
-                android:layout_marginBottom="8dp"
                 android:fontFamily="sans-serif-black"
                 android:lineSpacingExtra="8sp"
                 android:text="QTY :"
                 android:textColor="@android:color/background_light"
                 android:textSize="18sp"
                 android:textStyle="bold"
-                app:layout_constraintBottom_toTopOf="@+id/invN4"
+                app:layout_constraintBottom_toBottomOf="@+id/inventory_product_qty"
                 app:layout_constraintEnd_toEndOf="@+id/invN"
                 app:layout_constraintStart_toStartOf="@+id/invN"
-                app:layout_constraintTop_toBottomOf="@+id/inventory_product_id" />
+                app:layout_constraintTop_toTopOf="@+id/inventory_product_qty" />
 
             <TextView
                 android:id="@+id/inventory_product_price"
                 android:layout_width="0dp"
-                android:layout_height="25dp"
-                android:layout_marginStart="8dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
                 android:layout_marginEnd="8dp"
                 android:layout_marginBottom="8dp"
                 android:fontFamily="sans-serif"
-                android:maxLines="1"
                 android:text="TextView"
                 android:textColor="@android:color/background_light"
-                android:textSize="18sp"
+                android:textSize="16sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/invN4" />
@@ -137,7 +151,6 @@
                 android:id="@+id/invN4"
                 android:layout_width="wrap_content"
                 android:layout_height="27dp"
-                android:layout_marginStart="8dp"
                 android:layout_marginBottom="8dp"
                 android:fontFamily="sans-serif-black"
                 android:lineSpacingExtra="8sp"

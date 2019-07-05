@@ -43,7 +43,7 @@ public class BuisnessGenerateNewProduct extends AppCompatActivity {
         text_name = findViewById(R.id.prod_edit_name);
         text_price = findViewById(R.id.prod_edit_price);
         text_qty = findViewById(R.id.prod_edit_qty);
-        text_store = findViewById(R.id.prod_edit_store);
+        text_store = findViewById(R.id.cust_edit_phone);
         progress = findViewById(R.id.product_gen_progress);
         progress.setVisibility(View.GONE);
     }
